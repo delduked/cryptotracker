@@ -53,3 +53,30 @@ func GetTrade(c *fiber.Ctx) error {
 	return handlers.TradeResponse(res, c)
 
 }
+
+func GetTradeType(c *fiber.Ctx) error {
+
+	tradeType := c.Params("type")
+	tradeReceivedCurrency := c.Params("receivedcurrency")
+
+	filter := new(types.TradeFilter)
+	filter.Type = tradeType
+	filter.ReceivedCurrency = tradeReceivedCurrency
+
+	tradesSaved, err := controllers.GetTradeType(filter)
+	if err != nil {
+		res := types.Response{
+			Status: fiber.StatusInternalServerError,
+			Error:  err,
+		}
+		return handlers.Response(res, c)
+	}
+
+	res := types.AllTradesResponse{
+		Status: fiber.StatusOK,
+		Error:  err,
+		Trades: tradesSaved,
+	}
+
+	return handlers.AllTradesResponse(res, c)
+}

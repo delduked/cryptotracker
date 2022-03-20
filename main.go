@@ -2,6 +2,7 @@ package main
 
 import (
 	"cryptoTracker/services"
+	"fmt"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -11,18 +12,23 @@ import (
 func main() {
 	app := fiber.New()
 	app.Use(cors.New())
+	app.Use(func(c *fiber.Ctx) error {
+		fmt.Println(c)
+		return c.Next()
+	})
 
-	//app.Get("/swagger/*", swagger.Handler)
+	app.Get("/", services.GetTrades)
+	app.Get("/:key", services.GetTrade)
+	app.Get("/filter/:type/:receivedcurrency", services.GetTradeType)
 
-	app.Get("/dashboard", monitor.New())
-	app.Get("/healthcheck", services.HealthCheck)
+	app.Post("/", services.SaveTrades)
+	app.Put("/", services.SaveTrade)
 
-	db := app.Group("/db")
+	app.Delete("/", services.DeleteAllTrades)
 
-	db.Get("/", services.GetTrades)
-	db.Get("/:key", services.GetTrade)
-	db.Post("/", services.SaveTrades)
-	db.Put("/", services.SaveTrade)
+	stats := app.Group("/stats")
+	stats.Get("/dashboard", monitor.New())
+	stats.Get("/healthcheck", services.HealthCheck)
 
 	app.Listen(":8080")
 
