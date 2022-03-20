@@ -1,15 +1,15 @@
 package types
 
 type TradeRequest struct {
-	Date             string `json:"Date"`
-	Type             string `json:"Type"`
-	ReceivedQuantity int    `json:"ReceivedQuantity"`
-	ReceivedCurrency int    `json:"ReceivedCurrency"`
-	SentQuantity     int    `json:"SentQuantity"`
-	SentCurrency     string `json:"SentCurrency"`
-	FeeAmount        int    `json:"FeeAmount"`
-	FeeCurrency      int    `json:"FeeCurrency"`
-	Tag              string `json:"Tag"`
+	Date             string  `redis:"Date" json:"Date"`
+	Type             string  `redis:"Type" json:"Type"`
+	ReceivedQuantity float64 `redis:"ReceivedQuantity" json:"ReceivedQuantity"`
+	ReceivedCurrency string  `redis:"ReceivedCurrency" json:"ReceivedCurrency"`
+	SentQuantity     float64 `redis:"SentQuantity" json:"SentQuantity"`
+	SentCurrency     string  `redis:"SentCurrency" json:"SentCurrency"`
+	FeeAmount        float64 `redis:"FeeAmount" json:"FeeAmount"`
+	FeeCurrency      float64 `redis:"FeeCurrency" json:"FeeCurrency"`
+	Tag              string  `redis:"Tag" json:"Tag"`
 }
 type NewTradeResponse struct {
 	Status int   `json:"Status"`
@@ -27,14 +27,14 @@ type TradeResponse struct {
 	Trade  TradeSaved
 }
 type TradeSaved struct {
-	Key              string `json:"Key"`
-	Date             string `json:"Date"`
-	Type             string `json:"Type"`
-	ReceivedQuantity int    `json:"ReceivedQuantity"`
-	ReceivedCurrency int    `json:"ReceivedCurrency"`
-	SentQuantity     int    `json:"SentQuantity"`
-	SentCurrency     string `json:"SentCurrency"`
-	FeeAmount        int    `json:"FeeAmount"`
-	FeeCurrency      int    `json:"FeeCurrency"`
-	Tag              string `json:"Tag"`
+	Key              string  `redis:"Key" json:"Key"`
+	Date             string  `redis:"Date" json:"Date"`
+	Type             string  `redis:"Type" json:"Type"`
+	ReceivedQuantity float64 `redis:"ReceivedQuantity" json:"ReceivedQuantity"`
+	ReceivedCurrency string  `redis:"ReceivedCurrency" json:"ReceivedCurrency"`
+	SentQuantity     float64 `redis:"SentQuantity" json:"SentQuantity"`
+	SentCurrency     string  `redis:"SentCurrency" json:"SentCurrency"`
+	FeeAmount        float64 `redis:"FeeAmount" json:"FeeAmount"`
+	FeeCurrency      float64 `redis:"FeeCurrency" json:"FeeCurrency"`
+	Tag              string  `redis:"Tag" json:"Tag"`
 }

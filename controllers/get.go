@@ -12,7 +12,7 @@ func GetAll() ([]types.TradeSaved, error) {
 	tradesSaved := []types.TradeSaved{}
 
 	// create each field in the array of trades to be saved
-	var keyedTrade types.TradeSaved
+	var trade types.TradeRequest
 
 	// get all keyed fields in redis
 	length, err := config.Rdb.Keys(config.RedisCtx, "*").Result()
@@ -21,21 +21,21 @@ func GetAll() ([]types.TradeSaved, error) {
 	}
 
 	for _, j := range length {
-		err := config.Rdb.HGetAll(config.RedisCtx, j).Scan(&keyedTrade)
+		err := config.Rdb.HGetAll(config.RedisCtx, j).Scan(&trade)
 		if err != nil {
 			return tradesSaved, err
 		}
 		tradeSaved := types.TradeSaved{
 			Key:              j,
-			Date:             keyedTrade.Date,
-			Type:             keyedTrade.Type,
-			ReceivedQuantity: keyedTrade.ReceivedQuantity,
-			ReceivedCurrency: keyedTrade.ReceivedCurrency,
-			SentQuantity:     keyedTrade.SentQuantity,
-			SentCurrency:     keyedTrade.SentCurrency,
-			FeeAmount:        keyedTrade.FeeAmount,
-			FeeCurrency:      keyedTrade.FeeCurrency,
-			Tag:              keyedTrade.Tag,
+			Date:             trade.Date,
+			Type:             trade.Type,
+			ReceivedQuantity: trade.ReceivedQuantity,
+			ReceivedCurrency: trade.ReceivedCurrency,
+			SentQuantity:     trade.SentQuantity,
+			SentCurrency:     trade.SentCurrency,
+			FeeAmount:        trade.FeeAmount,
+			FeeCurrency:      trade.FeeCurrency,
+			Tag:              trade.Tag,
 		}
 		// append the keyed field to the array of trades to be sent to the client
 		tradesSaved = append(tradesSaved, tradeSaved)
@@ -45,21 +45,36 @@ func GetAll() ([]types.TradeSaved, error) {
 }
 
 func GetKeyedTrade(key string) (types.TradeSaved, error, int) {
-	var keyedTrade types.TradeSaved
+	var trade types.TradeRequest
+	var tradeWithKey types.TradeSaved
 	var Error error
 	length, err := config.Rdb.HGetAll(config.RedisCtx, key).Result()
 	if err == redis.Nil {
-		return keyedTrade, Error, len(length)
+		return tradeWithKey, Error, len(length)
 	} else if err != nil {
-		return keyedTrade, Error, len(length)
+		return tradeWithKey, Error, len(length)
 	} else if len(length) == 0 {
-		return keyedTrade, Error, len(length)
+		return tradeWithKey, Error, len(length)
 	}
 
-	err = config.Rdb.HGetAll(config.RedisCtx, key).Scan(&keyedTrade)
+	err = config.Rdb.HGetAll(config.RedisCtx, key).Scan(&trade)
 	if err != nil {
-		return keyedTrade, err, len(length)
+		return tradeWithKey, err, len(length)
 	}
-	return keyedTrade, nil, len(length)
+
+	tradeWithKey = types.TradeSaved{
+		Key:              key,
+		Date:             trade.Date,
+		Type:             trade.Type,
+		ReceivedQuantity: trade.ReceivedQuantity,
+		ReceivedCurrency: trade.ReceivedCurrency,
+		SentQuantity:     trade.SentQuantity,
+		SentCurrency:     trade.SentCurrency,
+		FeeAmount:        trade.FeeAmount,
+		FeeCurrency:      trade.FeeCurrency,
+		Tag:              trade.Tag,
+	}
+
+	return tradeWithKey, nil, len(length)
 
 }

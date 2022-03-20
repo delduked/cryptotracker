@@ -21,7 +21,7 @@ var Rdb = redis.NewClient(&redis.Options{
 func getRedisHostname() string {
 	importHostname, ok := os.LookupEnv("REDIS_HOSTNAME")
 	if !ok {
-		return "cryptoTrackerDB"
+		return "192.168.0.32"
 	}
 	return importHostname
 
@@ -38,7 +38,7 @@ func getRedisPassword() string {
 func getRedisPort() string {
 	importRedisPort, ok := os.LookupEnv("REDIS_PORT")
 	if !ok {
-		return ":6379"
+		return ":6390"
 	}
 	return ":" + importRedisPort
 }
