@@ -21,16 +21,30 @@ services:
     container_name: ${API_HOSTNAME}
     hostname: ${API_HOSTNAME}
     build:
-      context: .
-      dockerfile: image.dockerfile
+      context: ./api
+      dockerfile: api.dockerfile
     ports:
-      - 4545:8080
+      - 4231:8080
     networks:
       - trading
     environment:
       - REDIS_HOSTNAME=${REDIS_HOSTANME}
       - REDIS_PORT=${REDIS_PORT}
       - REDIS_PASSWORD=${REDIS_PASSWORD}
+
+  ui:
+    container_name: ${UI_HOSTNAME}
+    hostname: ${UI_HOSTNAME}
+    build:
+      context: ./ui
+      dockerfile: ui.dockerfile
+    ports:
+      - ${UI_EXTERNAL_PORT}:8080
+    networks:
+      - trading
+    environment:
+      - API_HOSTNAME=${API_HOSTNAME}
+      - API_PORT=${API_PORT}
 
 volumes:
   tradingvolume:

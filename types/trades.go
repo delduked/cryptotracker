@@ -8,7 +8,7 @@ type TradeRequest struct {
 	SentQuantity     float64 `redis:"SentQuantity" json:"SentQuantity"`
 	SentCurrency     string  `redis:"SentCurrency" json:"SentCurrency"`
 	FeeAmount        float64 `redis:"FeeAmount" json:"FeeAmount"`
-	FeeCurrency      float64 `redis:"FeeCurrency" json:"FeeCurrency"`
+	FeeCurrency      string  `redis:"FeeCurrency" json:"FeeCurrency"`
 	Tag              string  `redis:"Tag" json:"Tag"`
 }
 type NewTradeResponse struct {
@@ -35,6 +35,6 @@ type TradeSaved struct {
 	SentQuantity     float64 `redis:"SentQuantity" json:"SentQuantity"`
 	SentCurrency     string  `redis:"SentCurrency" json:"SentCurrency"`
 	FeeAmount        float64 `redis:"FeeAmount" json:"FeeAmount"`
-	FeeCurrency      float64 `redis:"FeeCurrency" json:"FeeCurrency"`
+	FeeCurrency      string  `redis:"FeeCurrency" json:"FeeCurrency"`
 	Tag              string  `redis:"Tag" json:"Tag"`
 }
