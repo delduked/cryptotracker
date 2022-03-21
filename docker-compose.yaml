@@ -5,6 +5,7 @@ services:
     container_name: ${REDIS_HOSTANME}
     hostname: ${REDIS_HOSTANME}
     image: redislabs/rejson:latest
+    restart: unless-stopped
     expose:
       - ${REDIS_PORT}
     command: >
@@ -18,13 +19,14 @@ services:
       - trading
       
   api:
-    container_name: ${API_HOSTNAME}
-    hostname: ${API_HOSTNAME}
+    container_name: tradingapi
+    hostname: tradingapi
+    restart: unless-stopped
     build:
       context: ./api
       dockerfile: api.dockerfile
-    expose:
-      - ${API_PORT}
+    ports:
+      - ${API_PORT}:8080
     networks:
       - trading
     environment:
@@ -35,6 +37,7 @@ services:
   ui:
     container_name: ${UI_HOSTNAME}
     hostname: ${UI_HOSTNAME}
+    restart: unless-stopped
     build:
       context: ./ui
       dockerfile: ui.dockerfile
