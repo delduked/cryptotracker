@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"cryptoTracker/config"
-	"cryptoTracker/types"
+	"api/config"
+	"api/types"
 
 	"github.com/go-redis/redis/v8"
 )

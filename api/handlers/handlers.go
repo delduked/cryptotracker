@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"cryptoTracker/types"
+	"api/types"
 	"encoding/json"
 
 	"github.com/gofiber/fiber/v2"

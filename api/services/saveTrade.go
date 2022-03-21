@@ -1,9 +1,9 @@
 package services
 
 import (
-	"cryptoTracker/controllers"
-	"cryptoTracker/handlers"
-	"cryptoTracker/types"
+	"api/controllers"
+	"api/handlers"
+	"api/types"
 
 	"github.com/gofiber/fiber/v2"
 )
