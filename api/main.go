@@ -23,6 +23,7 @@ func main() {
 	db.Get("/:key", services.GetTrade)
 	db.Post("/", services.SaveTrades)
 	db.Put("/", services.SaveTrade)
+        db.Delete("/", services.DeleteAllTrades)
 
 	app.Listen(":8080")
 
