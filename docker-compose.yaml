@@ -6,10 +6,10 @@ services:
     hostname: ${REDIS_HOSTANME}
     image: redislabs/rejson:latest
     expose:
-      - "6379"
+      - ${REDIS_PORT}
     command: >
-      --name ${REDIS_HOSTANME}
       --requirepass ${REDIS_PASSWORD} 
+      --port ${REDIS_PORT}
       --save 60 1
       --loglevel warning
     volumes:
@@ -23,8 +23,8 @@ services:
     build:
       context: ./api
       dockerfile: api.dockerfile
-    ports:
-      - 4231:8080
+    expose:
+      - ${API_PORT}
     networks:
       - trading
     environment:

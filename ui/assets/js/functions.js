@@ -33,7 +33,7 @@ var table1 = new Tabulator("#table1", {
 ajaxResponse: function( url, params, response){
   return response.Trades;
 },
-ajaxURL: apihostname,
+ajaxURL: apihostname + "/db",
 layout:"fitDataStretch",
 responsiveLayout:"collapse",
 dataTree:true,
