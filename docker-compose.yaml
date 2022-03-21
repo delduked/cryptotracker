@@ -5,8 +5,8 @@ services:
     container_name: ${REDIS_HOSTANME}
     hostname: ${REDIS_HOSTANME}
     image: redislabs/rejson:latest
-    ports:
-      - ${REDIS_PORT}:6379
+    expose:
+      - "6379"
     command: >
       --name ${REDIS_HOSTANME}
       --requirepass ${REDIS_PASSWORD} 
