@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>ZWEB</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/tabulator.css">
+    <script type="text/javascript" src="/assets/js/tabulator.js"></script>
+    <link type="text/css" href="/assets/css/fontawesome.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  </header>
+  <body>
+    <div class="navbar">
+      <ul class="navbar-nav">
+        <li class="logo"><a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="250" height="218.048" viewBox="0 0 250 218.048"><defs><style>.a{fill:#fff;fill-rule:evenodd;}</style></defs><path class="a" d="M334.1,74.248c-2.514-4.189-6.176-5.121-9.777-5.214h-82.3l4.251-11.265L234.322,60.9l-3.415-7.076-6.8,7.666,4.376-19.583L217.78,47.775l-7.355-14.151-7.355,14.151-10.707-5.866,4.376,19.583-6.8-7.666L186.529,60.9,174.58,57.768l4.251,11.265h-82.3c-3.6.093-7.261,1.023-9.775,5.214a10.186,10.186,0,0,0,.278,10.52L201.676,247.452a11.184,11.184,0,0,0,17.5,0L333.82,84.768a10.183,10.183,0,0,0,.28-10.52ZM185.881,64.161c1.8.527,2.327-.187,3.259-1.023l1.644-3.384,7.51,8.471a1.577,1.577,0,0,0,2.142.062,1.989,1.989,0,0,0,.745-2.111l-4-17.844,4.625,2.514c1.706,1.21,3.166.4,4.035-1.179l4.594-8.876,4.594,8.876c.87,1.582,2.327,2.389,4.035,1.179l4.594-2.514-3.973,17.844a1.989,1.989,0,0,0,.745,2.111,1.577,1.577,0,0,0,2.142-.062l7.51-8.471,1.644,3.384c.932.839,1.459,1.551,3.259,1.023l5.96-1.582-2.669,7.2a3.652,3.652,0,0,0,.59,4.469l2.358,2.358L227.44,87.126c-1.831,1.553-.59,4.872,1.272,7.759l-15.145-2.576c-.87-.031-1.737.125-1.737,1.893v5.059h-2.794V94.2c-.031-1.769-.87-1.924-1.737-1.893l-15.145,2.576c1.862-2.885,3.1-6.207,1.272-7.759l-13.779-10.52.951-.951,1.409-1.409a3.6,3.6,0,0,0,.558-4.469l-2.638-7.2ZM332.053,80.083A7.993,7.993,0,0,1,331.03,83L216.3,245.743a7.917,7.917,0,0,1-3.508,2.327,10.371,10.371,0,0,1-2.358.28h-.5a10.57,10.57,0,0,1-1.428-.187,7.846,7.846,0,0,1-4.22-2.732L89.58,82.534a9.6,9.6,0,0,1-.714-1.987,6.859,6.859,0,0,1,3.352-7.23,10.721,10.721,0,0,1,4.407-.992l82.582.031-3.3,3.3-79.22-.012a5.394,5.394,0,0,0-3.384.93,3.58,3.58,0,0,0-.807,4.407l114.394,162.4a4.268,4.268,0,0,0,3.2,1.675,4.34,4.34,0,0,0,3.755-1.52l1.8-2.607L328.2,81.229a3.579,3.579,0,0,0-.807-4.779,5.2,5.2,0,0,0-2.794-.776l-79.646-.012-3.31-3.31H324.79a10.2,10.2,0,0,1,3.849.961,6.879,6.879,0,0,1,3.415,6.769Z" transform="translate(-85.428 -33.624)"/></svg><span class="link-text">Canadian Tire</span></a></li>
+        <!--li.nav-item
+        a.nav-link(href="#")
+              include pug-icons/triangle.pug
+              span.link-text Dashboard 
+        -->
+        <li class="nav-item"><a class="nav-link" id="page-1" href="#">
+            <svg class="svg-inline--fa fa-desktop fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="desktop" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="white" d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z"></path>
+            </svg><span class="link-text">PC</span></a></li>
+        <li class="nav-item"><a class="nav-link" id="page-2" href="#">
+            <svg class="svg-inline--fa fa-database fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="database" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="white" d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path>
+            </svg><span class="link-text">DB</span></a></li>
+        <li class="nav-item"><a class="nav-link" id="page-3" href="#">
+            <svg class="svg-inline--fa fa-hdd fa-w-18" aria-hidden="true" focusable="false" data-prefix="far" data-icon="hdd" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="white" d="M567.403 235.642L462.323 84.589A48 48 0 0 0 422.919 64H153.081a48 48 0 0 0-39.404 20.589L8.597 235.642A48.001 48.001 0 0 0 0 263.054V400c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V263.054c0-9.801-3-19.366-8.597-27.412zM153.081 112h269.838l77.913 112H75.168l77.913-112zM528 400H48V272h480v128zm-32-64c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-96 0c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32z"></path>
+            </svg><span class="link-text">HDD</span></a></li>
+        <li class="nav-item" id="clock"><a class="nav-link" href="#">
+            <svg class="svg-inline--fa fa-clock fa-w-16" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="white" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path>
+            </svg><span class="link-text" id="time"></span></a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="display" id="tabs-1">
+        <h1>Crypto Tracker</h1>
+        <h1 id="API_HOSTNAME" style="display:none;">{{.API_HOSTNAME}}</h1>
+        <div class="overnight table-borderless table-striped thead-dark table-sm" id="table1"></div>
+      </div>
+    </main>
+    <div class="connections"> </div>
+  </body>
+</html>
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/functions.js"></script>
