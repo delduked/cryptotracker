@@ -4,7 +4,7 @@ services:
   db:
     container_name: ${REDIS_HOSTANME}
     hostname: ${REDIS_HOSTANME}
-    image: redislabs/rejson:latest
+    image: redis:6.2.3-alpine
     restart: unless-stopped
     expose:
       - ${REDIS_PORT}
